@@ -108,4 +108,18 @@ public class LinkedList {
 		length--;
 		return temp;
 	}
+
+	public Node get(int index) {
+		if (index < 0 || index > length) {
+			return null;
+		}
+		Node temp = head;
+		for (int i = 0; i < length; i++) {
+			if (i == index) {
+				return temp;
+			}
+			temp = temp.getNext();
+		}
+		return null;
+	}
 }

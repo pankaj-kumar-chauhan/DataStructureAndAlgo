@@ -9,15 +9,11 @@ public class LinkedListMain {
 
 	public static void main(String[] args) {
 		LinkedList linkedList = new LinkedList(0);
-		linkedList.removeLast();
-		linkedList.print();
-		linkedList.removeFirst();
-		linkedList.append(0);
+		linkedList.append(1);
 		linkedList.append(2);
 		linkedList.append(3);
-		Node deleteNode = linkedList.removeFirst();
-		LOGGER.debug("Deleted {}", deleteNode.getValue() + "");
 		linkedList.print();
+		LOGGER.debug("Node = {}", linkedList.get(2));
 
 	}
 }
