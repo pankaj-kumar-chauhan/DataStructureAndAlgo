@@ -11,11 +11,13 @@ public class LinkedListMain {
 		LinkedList linkedList = new LinkedList(0);
 		linkedList.removeLast();
 		linkedList.print();
-		linkedList.prepend(0);
+		linkedList.removeFirst();
+		linkedList.append(0);
+		linkedList.append(2);
+		linkedList.append(3);
+		Node deleteNode = linkedList.removeFirst();
+		LOGGER.debug("Deleted {}", deleteNode.getValue() + "");
 		linkedList.print();
-		linkedList.prepend(1);
-		linkedList.print();
-		linkedList.prepend(2);
-		linkedList.print();
+
 	}
 }
