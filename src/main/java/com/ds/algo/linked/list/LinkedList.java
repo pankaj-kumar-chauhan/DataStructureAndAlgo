@@ -122,4 +122,13 @@ public class LinkedList {
 		}
 		return null;
 	}
+
+	public boolean set(int index, int value) {
+		Node node = get(index);
+		if (node != null) {
+			node.setValue(value);
+			return true;
+		}
+		return false;
+	}
 }

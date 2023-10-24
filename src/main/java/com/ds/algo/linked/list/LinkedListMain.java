@@ -12,8 +12,9 @@ public class LinkedListMain {
 		linkedList.append(1);
 		linkedList.append(2);
 		linkedList.append(3);
+
+		linkedList.set(2, 22);
 		linkedList.print();
-		LOGGER.debug("Node = {}", linkedList.get(2));
 
 	}
 }
