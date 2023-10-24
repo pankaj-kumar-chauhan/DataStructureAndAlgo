@@ -131,4 +131,41 @@ public class LinkedList {
 		}
 		return false;
 	}
+
+	public boolean insert(int index, int value) {
+		Node newNode = new Node(value);
+		if (index < 0 || index > length) {
+			return false;
+		}
+		if (index == 0) {
+			prepend(value);
+			return true;
+		}
+		if (index == length - 1) {
+			append(value);
+			return true;
+		}
+		Node node = get(index - 1);
+		newNode.setNext(node.getNext());
+		node.setNext(newNode);
+		length++;
+		return true;
+	}
+
+	public Node remove(int index) {
+		if (index < 0 || index > length) {
+			return null;
+		}
+		if (index == 0) {
+			return removeFirst();
+		}
+		if (index == length - 1) {
+			return removeLast();
+		}
+		Node node = get(index - 1);
+		Node tempNode = node.getNext();
+		node.setNext(tempNode.getNext());
+		length--;
+		return tempNode;
+	}
 }

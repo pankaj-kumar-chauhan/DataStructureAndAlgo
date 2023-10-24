@@ -13,7 +13,7 @@ public class LinkedListMain {
 		linkedList.append(2);
 		linkedList.append(3);
 
-		linkedList.set(2, 22);
+		linkedList.insert(2, 555);
 		linkedList.print();
 
 	}
