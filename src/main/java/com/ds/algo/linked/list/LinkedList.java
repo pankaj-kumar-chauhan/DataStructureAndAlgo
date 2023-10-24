@@ -168,4 +168,31 @@ public class LinkedList {
 		length--;
 		return tempNode;
 	}
+
+	public void reverse() {
+		Node previous = null;
+		Node middle = head;
+		Node next = middle.getNext();
+		head = tail;
+		tail = middle;
+		while (next != null) {
+			Node node = next.getNext();
+			next.setNext(middle);
+			middle.setNext(previous);
+			previous = middle;
+			middle = next;
+			next = node;
+		}
+	}
+
+	public Node findMiddleNode() {
+		Node node = head;
+		Node fastNode = head;
+		while (fastNode != null && fastNode.getNext() != null) {
+			node = node.getNext();
+			fastNode = fastNode.getNext().getNext();
+		}
+		
+		return node;
+	}
 }
