@@ -192,7 +192,37 @@ public class LinkedList {
 			node = node.getNext();
 			fastNode = fastNode.getNext().getNext();
 		}
-		
+
 		return node;
+	}
+
+	public boolean hasLoop() {
+		Node node = head;
+		Node fastNode = head;
+		while (fastNode != null && fastNode.getNext() != null) {
+			node = node.getNext();
+			fastNode = fastNode.getNext().getNext();
+			if (fastNode != null && node.getValue() == fastNode.getValue()) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public Node findKthFromEnd(int k) {
+		Node slow = head;
+		Node fast = head;
+
+		for (int i = 0; i < k; i++) {
+			if (fast == null) {
+				return null;
+			}
+			fast = fast.getNext();
+		}
+		while (fast != null) {
+			slow = slow.getNext();
+			fast = fast.getNext();
+		}
+		return slow;
 	}
 }

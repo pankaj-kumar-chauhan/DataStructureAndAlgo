@@ -14,8 +14,8 @@ public class LinkedListMain {
 		linkedList.append(4);
 		linkedList.append(5);
 		linkedList.append(6);
-
-		LOGGER.debug("Middle Node {}", linkedList.findMiddleNode());
+		
+		LOGGER.debug("Kth From End {}", linkedList.findKthFromEnd(1));
 
 	}
 }
