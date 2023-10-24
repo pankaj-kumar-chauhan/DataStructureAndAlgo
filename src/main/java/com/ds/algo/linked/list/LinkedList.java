@@ -284,8 +284,17 @@ public class LinkedList {
 				prev = node;
 			}
 
-			
 			node = node.getNext();
 		}
+	}
+
+	public int binaryToDecimal() {
+		int num = 0;
+		Node node = head;
+		while (node != null) {
+			num = (2 * num) + node.getValue();
+			node = node.getNext();
+		}
+		return num;
 	}
 }
