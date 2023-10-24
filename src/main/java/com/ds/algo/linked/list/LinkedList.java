@@ -1,5 +1,8 @@
 package com.ds.algo.linked.list;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -224,5 +227,65 @@ public class LinkedList {
 			fast = fast.getNext();
 		}
 		return slow;
+	}
+
+	public void partitionList(int x) {
+		if (head == null) {
+			return;
+		}
+		Node first = null;
+		Node second = null;
+		Node secondHead = null;
+		Node firstHead = null;
+		Node temp = head;
+		while (temp != null) {
+			if (temp.getValue() < x) {
+				if (first == null) {
+					first = temp;
+					firstHead = temp;
+				} else {
+					first.setNext(temp);
+					first = temp;
+				}
+
+			} else {
+				if (second == null) {
+					second = temp;
+					secondHead = temp;
+				} else {
+					second.setNext(temp);
+					second = temp;
+				}
+			}
+			temp = temp.getNext();
+		}
+		if (second != null) {
+			second.setNext(null);
+		}
+		if (first != null) {
+			first.setNext(secondHead);
+			head = firstHead;
+		} else {
+			head = secondHead;
+		}
+
+	}
+
+	public void removeDuplicates() {
+		Set<Integer> intSet = new HashSet<>();
+		Node node = head;
+		Node prev = head;
+		while (node != null) {
+			if (intSet.contains(node.getValue())) {
+				prev.setNext(node.getNext());
+
+			} else {
+				intSet.add(node.getValue());
+				prev = node;
+			}
+
+			
+			node = node.getNext();
+		}
 	}
 }
